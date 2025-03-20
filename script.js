@@ -1,7 +1,7 @@
 const canvas = document.getElementById("game-board");
 const ctx = canvas.getContext("2d");
 const box = 20;
-const canvasSize = 400;
+const canvasSize = 600;
 canvas.width = canvasSize;
 canvas.height = canvasSize;
 
@@ -55,18 +55,39 @@ function clearCanvas() {
     ctx.fillRect(0, 0, canvasSize, canvasSize);
 }
 
-// Draw snake
+// Draw snake with a realistic effect
 function drawSnake() {
-    ctx.fillStyle = "lime";
-    snake.forEach(part => {
-        ctx.fillRect(part.x, part.y, box, box);
+    snake.forEach((part, index) => {
+        const gradient = ctx.createRadialGradient(
+            part.x + box / 2, part.y + box / 2, 5,
+            part.x + box / 2, part.y + box / 2, box / 2
+        );
+        
+        gradient.addColorStop(0, index === 0 ? "yellow" : "green");
+        gradient.addColorStop(1, "darkgreen");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(part.x + box / 2, part.y + box / 2, box / 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
     });
 }
 
-// Draw food
+// Draw food (Apple style)
 function drawFood() {
     ctx.fillStyle = "red";
-    ctx.fillRect(food.x, food.y, box, box);
+    ctx.beginPath();
+    ctx.arc(food.x + box / 2, food.y + box / 2, box / 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Adding a small leaf on the apple
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.arc(food.x + box / 2, food.y + box / 4, 5, 0, Math.PI * 2);
+    ctx.fill();
 }
 
 // Move snake
@@ -115,6 +136,3 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
     if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
 });
-
-
-

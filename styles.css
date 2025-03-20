@@ -1,6 +1,8 @@
 body {
+    background: url('https://res.cloudinary.com/decaajhdd/image/upload/v1742487829/snake-pass-key-art-no-logo_pgauth.jpg') no-repeat center center fixed;
+    background-size: cover;
     background-color: #222;
-    color: white;
+    color: rgb(240, 229, 19);
     text-align: center;
     font-family: Arial, sans-serif;
 }
@@ -15,9 +17,57 @@ body {
 #game-board {
     background-color: black;
     border: 2px solid white;
-    width: 400px;
+    width: 600px;
     height: 400px;
 }
 
 
 
+.adds{
+    padding: 20px;
+}
+
+
+body {
+    background-color: #222;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+#game-board {
+    background-color: black;
+    border: 2px solid white;
+    width: 450px;
+    height: 450px;
+}
+
+#background-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.adds {
+    padding: 20px;
+}
+
+#h1{
+    color: brown;
+}
