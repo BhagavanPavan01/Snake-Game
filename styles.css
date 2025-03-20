@@ -66,8 +66,31 @@ body {
 
 .adds {
     padding: 20px;
+    color: orange;
 }
 
-#h1{
-    color: brown;
+
+/* Change heading color */
+h1 {
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 3px;
 }
+
+/* Change paragraph text color */
+p {
+    color: rgb(0, 0, 0);
+    
+}
+
+/* Change score number color */
+#score {
+    color: rgb(0, 0, 0);
+}
+
+/* Change button text color */
+button {
+    color: white;
+}
+
+
