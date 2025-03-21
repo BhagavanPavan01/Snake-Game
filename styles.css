@@ -93,4 +93,402 @@ button {
     color: white;
 }
 
+/* Touch Controls */
+#touch-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#touch-controls .row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#touch-controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #444;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#touch-controls button:active {
+    background-color: #666;
+}
+
+
+@media (min-width: 768px) {
+    #touch-controls {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #touch-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+
+    #touch-controls .row {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    #touch-controls button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        background-color: #444;
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #touch-controls button:active {
+        background-color: #666;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #touch-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .row {
+        display: flex;
+        gap: 10px;
+    }
+
+    #touch-controls button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        background-color: #444;
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #touch-controls button:active {
+        background-color: #666;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #touch-controls {
+        position: fixed;
+        bottom: 0px; /* Move buttons up to avoid Start button */
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .row {
+        display: flex;
+        gap: 10px;
+    }
+
+    #touch-controls button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        background-color: #204488;
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+        bottom: 20px;
+    }
+
+    #touch-controls button:active {
+        background-color: #666;
+    }
+
+    /* Move Start button above arrow controls */
+    .btn-primary {
+        position: fixed;
+        bottom: 20px; /* Puts it above the arrow buttons */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 140px;
+        height: 50px;
+    }
+}
+
+  
+#controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #555;
+}
+
+
+
+/* Fix Start Game Button Position */
+.btn-primary {
+    position: relative;
+    margin-top: 10px;
+    width: 140px;
+    height: 50px;
+}
+
+/* Fix Touch Controls */
+#touch-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+#touch-controls .row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#touch-controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #204488;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#touch-controls button:active {
+    background-color: #666;
+}
+
+/* Ensure Start Button is Above Touch Controls */
+@media (max-width: 768px) {
+    .btn-primary {
+        position: static;
+        margin-bottom: 10px;
+    }
+
+    #touch-controls {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Place Start Game Button in Bottom-Left */
+.btn-primary {
+    position: fixed;
+    bottom: 20px; /* Stick to the bottom */
+    left: 70px; /* Stick to the left */
+    width: 140px;
+    height: 50px;
+    font-size: 18px;
+    z-index: 100;
+}
+
+/* Touch Controls (Remain Centered) */
+#touch-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+#touch-controls .row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#touch-controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #204488;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#touch-controls button:active {
+    background-color: #666;
+}
+
+
+/* Default: Center the Start Button on Desktop */
+.btn-primary {
+    position: fixed;
+    bottom: 60px; /* Stick to the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 50px;
+    font-size: 18px;
+    z-index: 100;
+}
+
+/* Move Start Button to Bottom-Left on Mobile */
+@media (max-width: 768px) {
+    .btn-primary {
+        left: 20px; /* Move to bottom-left */
+        transform: none;
+    }
+}
+
+/* Touch Controls (Only Show on Mobile) */
+#touch-controls {
+    display: none; /* Hide on Desktop */
+}
+
+/* Show Touch Controls Only on Mobile */
+@media (max-width: 768px) {
+    #touch-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px; /* Move controls to the right */
+        left: auto; /* Reset left positioning */
+        transform: none; /* Remove centering */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align buttons properly */
+        gap: 10px;
+        z-index: 10; /* Ensure it's above other elements */
+    }
+}
+
+
+    #touch-controls .row {
+        display: flex;
+        justify-content:last baseline;
+        gap: 10px;
+    }
+
+    #touch-controls button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        background-color: #204488;
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #touch-controls button:active {
+        background-color: #666;
+    }
+}
+
+
+/* Ensure Footer is Always Visible */
+.adds {
+    text-align: center;
+    color: orange;
+    padding: 8px;
+    position: fixed;  /* Stick it to the bottom */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: transparent; /* Add a semi-transparent background */
+}
+
+/* Ensure Footer is Visible on Small Devices */
+@media (max-width: 768px) {
+    .adds {
+        display: block;  /* Make sure it doesn't disappear */
+    }
+}
+
+
+/* Ensure Footer is Always Visible */
+.adds {
+    text-align: center;
+    color: orange;
+    padding: 8px;
+    position: fixed;  /* Stick it to the bottom */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: transparent; /* Semi-transparent background */
+    z-index: 999; /* Ensure it is above other elements */
+}
+
+/* Ensure Footer is Visible on Small Devices */
+@media (max-width: 768px) {
+    .adds {
+        display: block;  /* Make sure it doesn't disappear */
+        font-size: 14px; /* Adjust text size for small screens */
+        visibility: hidden;
+        display: block;
+    }
+}
 

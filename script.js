@@ -55,7 +55,7 @@ function clearCanvas() {
     ctx.fillRect(0, 0, canvasSize, canvasSize);
 }
 
-// Draw snake with a realistic effect
+// Draw snake
 function drawSnake() {
     snake.forEach((part, index) => {
         const gradient = ctx.createRadialGradient(
@@ -76,7 +76,7 @@ function drawSnake() {
     });
 }
 
-// Draw food (Apple style)
+// Draw food
 function drawFood() {
     ctx.fillStyle = "red";
     ctx.beginPath();
@@ -129,10 +129,24 @@ function isGameOver() {
     return false;
 }
 
-// Handle keyboard input
+// Control buttons (For Touch Devices)
+document.getElementById("up").addEventListener("click", () => changeDirection("UP"));
+document.getElementById("down").addEventListener("click", () => changeDirection("DOWN"));
+document.getElementById("left").addEventListener("click", () => changeDirection("LEFT"));
+document.getElementById("right").addEventListener("click", () => changeDirection("RIGHT"));
+
+// Handle keyboard input (For Desktops)
 document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
-    if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
-    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
-    if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+    if (event.key === "ArrowUp") changeDirection("UP");
+    if (event.key === "ArrowDown") changeDirection("DOWN");
+    if (event.key === "ArrowLeft") changeDirection("LEFT");
+    if (event.key === "ArrowRight") changeDirection("RIGHT");
 });
+
+// Change direction function
+function changeDirection(newDirection) {
+    if (newDirection === "UP" && direction !== "DOWN") direction = "UP";
+    if (newDirection === "DOWN" && direction !== "UP") direction = "DOWN";
+    if (newDirection === "LEFT" && direction !== "RIGHT") direction = "LEFT";
+    if (newDirection === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
+}
