@@ -57,23 +57,74 @@ function clearCanvas() {
 
 // Draw snake
 function drawSnake() {
-    snake.forEach((part, index) => {
-        const gradient = ctx.createRadialGradient(
-            part.x + box / 2, part.y + box / 2, 5,
-            part.x + box / 2, part.y + box / 2, box / 2
-        );
-        
-        gradient.addColorStop(0, index === 0 ? "yellow" : "green");
-        gradient.addColorStop(1, "darkgreen");
+    // Draw each snake segment with realistic structure
+    snake.forEach((segment, index) => {
+        const isHead = (index === 0);
+        const isTail = (index === snake.length - 1);
 
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(part.x + box / 2, part.y + box / 2, box / 2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 2;
-        ctx.stroke();
+        if (isHead) {
+            drawSnakeHead(segment);
+        } else if (isTail) {
+            drawSnakeTail(segment, snake[index - 1]);
+        } else {
+            drawSnakeBody(segment, snake[index - 1], snake[index + 1]);
+        }
     });
+}
+
+function drawSnakeHead(segment) {
+    ctx.fillStyle = '#4CAF50'; // Green head
+    ctx.strokeStyle = '#2E7D32';
+    ctx.lineWidth = 2;
+
+    // Draw head (rounded rectangle with eyes)
+    ctx.beginPath();
+    ctx.roundRect(segment.x, segment.y, box, box, [10, 10, 2, 2]);
+    ctx.fill();
+    ctx.stroke();
+
+    // Eyes
+    const eyeSize = box / 5;
+    ctx.fillStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(segment.x + box / 3, segment.y + box / 3, eyeSize, 0, Math.PI * 2);
+    ctx.arc(segment.x + box * 2 / 3, segment.y + box / 3, eyeSize, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = 'black';
+    ctx.beginPath();
+    ctx.arc(segment.x + box / 3, segment.y + box / 3, eyeSize / 2, 0, Math.PI * 2);
+    ctx.arc(segment.x + box * 2 / 3, segment.y + box / 3, eyeSize / 2, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+function drawSnakeBody(segment, prevSegment, nextSegment) {
+    ctx.fillStyle = '#8BC34A'; // Light green body
+    ctx.strokeStyle = '#689F38';
+    ctx.lineWidth = 2;
+
+    // Calculate curves based on adjacent segments
+    const width = box;
+    const height = box;
+
+    ctx.beginPath();
+    // Draw curved body segment connecting to neighbors
+    // (Implementation depends on your preferred body style)
+    ctx.roundRect(segment.x, segment.y, width, height, [5, 5, 5, 5]);
+    ctx.fill();
+    ctx.stroke();
+}
+
+function drawSnakeTail(segment, prevSegment) {
+    ctx.fillStyle = '#689F38'; // Darker green tail
+    ctx.strokeStyle = '#33691E';
+    ctx.lineWidth = 2;
+
+    // Draw tapered tail
+    ctx.beginPath();
+    ctx.roundRect(segment.x, segment.y, box, box, [2, 2, 10, 10]);
+    ctx.fill();
+    ctx.stroke();
 }
 
 // Draw food
